@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:/home/rowan/VSCODE/manim/media/videos/third-lorenz/1080p60/partial_movie_files/LorenzAttractor/2129775231_57736867_2254227999.mp4'
+file 'file:/home/rowan/VSCODE/manim/media/videos/third-lorenz/1080p60/partial_movie_files/LorenzAttractor/1412137375_937055735_3284773446.mp4'
+file 'file:/home/rowan/VSCODE/manim/media/videos/third-lorenz/1080p60/partial_movie_files/LorenzAttractor/1966648686_3402799176_1268794735.mp4'
