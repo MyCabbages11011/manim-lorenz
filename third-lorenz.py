@@ -16,7 +16,7 @@ class LorenzAttractor(ThreeDScene):
 
     def rate_to_color(self, rate, min_rate, max_rate):
         epsilon = 1e-6
-        if min_rate == max_rate:  # Avoid division by zero
+        if min_rate == max_rate: 
             return BLUE
 
         rate_log = np.log(rate + epsilon)
@@ -27,17 +27,14 @@ class LorenzAttractor(ThreeDScene):
 
     def create_lorenz(self):
         num_curves = 12
-        all_curves = VGroup()  # Group to hold all curves
-
-        # Predefine some colors for curves
+        all_curves = VGroup() 
         colors = [BLUE_A, BLUE_B, BLUE_C, BLUE_D, GREEN_A, GREEN_B, RED_A, RED_B, BLUE_A, BLUE_E, GREEN_E, BLUE_A]
 
-        # Same starting point for all curves
-        initial_position = np.array([-1.0, 1.0, 0.0])  # All curves start from the same point
+        initial_position = np.array([-1.0, 1.0, 0.0]) 
         
         for curve_idx in range(num_curves):
             trajectory = []
-            pos = initial_position.copy()  # Start from the same position for each curve
+            pos = initial_position.copy()  
             dt = 0.001
             steps = 40000
             scale_factor = 0.1
@@ -66,13 +63,12 @@ class LorenzAttractor(ThreeDScene):
                 t_range=[0, 1, 0.002]
             )
 
-            curve.move_to(ORIGIN)  # Place the curve at the origin
+            curve.move_to(ORIGIN) 
             curve.set_stroke(width=2)
             curve.set_color_by_gradient(RED, BLUE)
-            curve.set_color(colors[curve_idx % len(colors)])  # Set a unique color for each curve
-            all_curves.add(curve)  # Add curve to the group
-
-        # Set camera orientation and start camera rotation
+            curve.set_color(colors[curve_idx % len(colors)]) 
+            all_curves.add(curve) 
+       
         self.set_camera_orientation(phi=80 * DEGREES, theta=45 * DEGREES)
         self.begin_ambient_camera_rotation(rate=0.8)
 
@@ -85,5 +81,5 @@ class LorenzAttractor(ThreeDScene):
             self.add(lorenz_equation)
 
         self.play(Write(lorenz_equation), run_time=2)
-        self.play(LaggedStartMap(Create, all_curves, lag_ratio=0.2, run_time=20))
+        self.play(LaggedStartMap(Create, all_curves, lag_ratio=0.2, run_time=35))
         self.wait()
